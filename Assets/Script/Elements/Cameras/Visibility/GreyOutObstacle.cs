@@ -11,6 +11,7 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Visibility
     public class GreyOutObstacle : MonoBehaviour
     {
         [SerializeField] private CameraPositionData _Data;
+        [SerializeField] private LayerMask _Walls = default;
 
         public CameraPositionData Data { get { return _Data; } set { _Data = value; } }
 
@@ -35,7 +36,7 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Visibility
             {
                 Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
 
-                RaycastHit[] hits = Physics.RaycastAll(ray, _Data.Length);
+                RaycastHit[] hits = Physics.RaycastAll(ray, _Data.Length, _Walls);
 
                 if (_HitObjects.Count > 0) foreach (GameObject obj in _HitObjects) _OldHitObjects.Add(obj);
 
@@ -43,10 +44,7 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Visibility
 
                 foreach (RaycastHit hit in hits)
                 {
-                    if (hit.collider.gameObject.CompareTag("Wall"))
-                    {
-                        if (!_OldHitObjects.Contains(hit.collider.gameObject)) _HitObjects.Add(hit.collider.gameObject);
-                    }
+                    if (!_OldHitObjects.Contains(hit.collider.gameObject)) _HitObjects.Add(hit.collider.gameObject);
                 }
 
 
