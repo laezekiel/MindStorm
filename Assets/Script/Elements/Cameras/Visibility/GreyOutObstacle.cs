@@ -12,6 +12,7 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Visibility
     {
         [SerializeField] private CameraPositionData _Data;
         [SerializeField] private LayerMask _Walls = default;
+        [SerializeField] private string _WallTag = default;
 
         public CameraPositionData Data { get { return _Data; } set { _Data = value; } }
 
@@ -44,14 +45,12 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Visibility
 
                 foreach (RaycastHit hit in hits)
                 {
-                    if (!_OldHitObjects.Contains(hit.collider.gameObject)) _HitObjects.Add(hit.collider.gameObject);
+                    if (!_OldHitObjects.Contains(hit.collider.gameObject) && hit.collider.gameObject.CompareTag(_WallTag)) _HitObjects.Add(hit.collider.gameObject);
                 }
 
 
                 bool isHit = false;
-                int oldIndex = 0;
                 List<GameObject> hitObjectsRemove = new List<GameObject>(); 
-                List<int> CoroutinesIndex = new List<int>();
 
                 foreach (GameObject obj in _OldHitObjects)
                 {
@@ -63,7 +62,6 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Visibility
                     {
                         hitObjectsRemove.Add(obj);
                     }
-                    oldIndex++;
                 }
                 foreach (GameObject obj in hitObjectsRemove) for (int i = _OldHitObjects.Count - 1; i >= 0; i--) if(_OldHitObjects[i] == obj) _OldHitObjects.Remove(obj);
 

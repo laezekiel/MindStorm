@@ -33,7 +33,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _EmissionStrength: 1
+    - _EmissionStrength: 0
     m_Colors:
     - _BaseColor: {r: 0.44520125, g: 0.33245158, b: 0.1811643, a: 1}
     - _Color: {r: 0.44520125, g: 0.33245158, b: 0.1811643, a: 1}

@@ -13,7 +13,7 @@ namespace com.isartdigital.Common.Elements.Player.Move
         {
             // Logic for ladder
 
-            _MoveManager.CanMove[2] = _CanClimb;
+            _MoveManager.CanGetMove[2] = _CanClimb;
         }
     }
 }

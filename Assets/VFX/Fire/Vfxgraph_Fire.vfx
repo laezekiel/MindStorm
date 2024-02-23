@@ -181,10 +181,10 @@ MonoBehaviour:
   - title: Lights
     position:
       serializedVersion: 2
-      x: -968
+      x: -969
       y: -346
       width: 1072
-      height: 1810
+      height: 1928
     contents:
     - model: {fileID: 8926484042661614974}
       id: 0
@@ -222,19 +222,19 @@ MonoBehaviour:
   stickyNoteInfos: []
   categories:
   - name: Flames
-    collapsed: 1
+    collapsed: 0
   - name: Smoke
-    collapsed: 1
+    collapsed: 0
   - name: Embers
-    collapsed: 1
+    collapsed: 0
   - name: Light
     collapsed: 0
   uiBounds:
     serializedVersion: 2
     x: -969
-    y: -346
+    y: -985
     width: 5613
-    height: 1928
+    height: 2567
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -306,6 +306,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615186}
   - {fileID: 8926484042661615194}
   - {fileID: 8926484042661615196}
+  - {fileID: 8926484042661615223}
+  - {fileID: 8926484042661615221}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
@@ -601,8 +603,8 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: LightTexture 1
-    path: LightTexture 1
+  - name: LightTexture
+    path: LightTexture
     tooltip: 
     sheetType: m_NamedObject
     realType: Texture2D
@@ -694,8 +696,12 @@ MonoBehaviour:
   m_Label: Spawn system
   m_Data: {fileID: 8926484042661614595}
   m_InputFlowSlot:
-  - link: []
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661615223}
+      slotIndex: 0
+  - link:
+    - context: {fileID: 8926484042661615221}
+      slotIndex: 0
   m_OutputFlowSlot:
   - link:
     - context: {fileID: 8926484042661614558}
@@ -2158,7 +2164,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -2389,7 +2395,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614613}
   m_ExposedName: FlameTexture
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 1
   m_Category: Flames
   m_Min:
     m_Type:
@@ -3007,7 +3013,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614650}
   m_ExposedName: FlameRate
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 2
   m_Category: Flames
   m_Min:
     m_Type:
@@ -3089,7 +3095,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614652}
   m_ExposedName: FlameLifetime
   m_Exposed: 1
-  m_Order: 14
+  m_Order: 6
   m_Category: Flames
   m_Min:
     m_Type:
@@ -3172,7 +3178,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614676}
   m_ExposedName: FlameVelocity
   m_Exposed: 1
-  m_Order: 11
+  m_Order: 4
   m_Category: Flames
   m_Min:
     m_Type:
@@ -3364,7 +3370,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614681}
   m_ExposedName: FlameSize
   m_Exposed: 1
-  m_Order: 17
+  m_Order: 7
   m_Category: Flames
   m_Min:
     m_Type:
@@ -4046,8 +4052,12 @@ MonoBehaviour:
   m_Label: Spawn system
   m_Data: {fileID: 8926484042661614701}
   m_InputFlowSlot:
-  - link: []
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661615223}
+      slotIndex: 0
+  - link:
+    - context: {fileID: 8926484042661615221}
+      slotIndex: 0
   m_OutputFlowSlot:
   - link:
     - context: {fileID: 8926484042661614730}
@@ -6380,7 +6390,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614790}
   m_ExposedName: SmokeRate
   m_Exposed: 1
-  m_Order: 9
+  m_Order: 12
   m_Category: Smoke
   m_Min:
     m_Type:
@@ -6462,7 +6472,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614792}
   m_ExposedName: SmokeTexture
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 10
   m_Category: Smoke
   m_Min:
     m_Type:
@@ -6542,7 +6552,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614794}
   m_ExposedName: SmokeLifetime
   m_Exposed: 1
-  m_Order: 15
+  m_Order: 16
   m_Category: Smoke
   m_Min:
     m_Type:
@@ -6625,7 +6635,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614796}
   m_ExposedName: SmokeVelocity
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 14
   m_Category: Smoke
   m_Min:
     m_Type:
@@ -7173,8 +7183,12 @@ MonoBehaviour:
   m_Label: Spawn system
   m_Data: {fileID: 8926484042661614811}
   m_InputFlowSlot:
-  - link: []
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661615223}
+      slotIndex: 0
+  - link:
+    - context: {fileID: 8926484042661615221}
+      slotIndex: 0
   m_OutputFlowSlot:
   - link:
     - context: {fileID: 8926484042661614840}
@@ -9780,7 +9794,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614900}
   m_ExposedName: EmberTexture
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 11
   m_Category: Embers
   m_Min:
     m_Type:
@@ -9860,7 +9874,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614902}
   m_ExposedName: EmberRate
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 13
   m_Category: Embers
   m_Min:
     m_Type:
@@ -9942,7 +9956,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614904}
   m_ExposedName: EmberVelocity
   m_Exposed: 1
-  m_Order: 13
+  m_Order: 15
   m_Category: Embers
   m_Min:
     m_Type:
@@ -10134,7 +10148,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614909}
   m_ExposedName: EmberLifetime
   m_Exposed: 1
-  m_Order: 16
+  m_Order: 17
   m_Category: Embers
   m_Min:
     m_Type:
@@ -10790,8 +10804,12 @@ MonoBehaviour:
   m_Label: 
   m_Data: {fileID: 8926484042661614975}
   m_InputFlowSlot:
-  - link: []
-  - link: []
+  - link:
+    - context: {fileID: 8926484042661615223}
+      slotIndex: 0
+  - link:
+    - context: {fileID: 8926484042661615221}
+      slotIndex: 0
   m_OutputFlowSlot:
   - link:
     - context: {fileID: 8926484042661614976}
@@ -11767,9 +11785,9 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661615024}
-  m_ExposedName: LightTexture 1
+  m_ExposedName: LightTexture
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 5
   m_Category: Light
   m_Min:
     m_Type:
@@ -12047,8 +12065,7 @@ MonoBehaviour:
       m_SerializableType: UnityEditor.VFX.Position, Unity.VisualEffectGraph.Editor,
         Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots:
-  - {fileID: 8926484042661615096}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661615090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12150,7 +12167,8 @@ MonoBehaviour:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661615098}
 --- !u!114 &8926484042661615093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12234,14 +12252,14 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661615096}
   m_ExposedName: LightPosition
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 8
   m_Category: Light
   m_Min:
     m_Type:
@@ -12258,11 +12276,12 @@ MonoBehaviour:
   m_Nodes:
   - m_Id: 0
     linkedSlots:
-    - outputSlot: {fileID: 8926484042661615096}
-      inputSlot: {fileID: 8926484042661615089}
-    position: {x: -588, y: 381.3333}
-    expandedSlots: []
-    expanded: 0
+    - outputSlot: {fileID: 8926484042661615098}
+      inputSlot: {fileID: 8926484042661615092}
+    position: {x: -627.3333, y: 319.3333}
+    expandedSlots:
+    - {fileID: 8926484042661615096}
+    expanded: 1
 --- !u!114 &8926484042661615096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12299,8 +12318,7 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 1
-  m_LinkedSlots:
-  - {fileID: 8926484042661615089}
+  m_LinkedSlots: []
 --- !u!114 &8926484042661615097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12366,7 +12384,8 @@ MonoBehaviour:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
   m_Direction: 1
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661615092}
 --- !u!114 &8926484042661615099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12423,7 +12442,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615101}
   m_ExposedName: LightStrength
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 9
   m_Category: Light
   m_Min:
     m_Type:
@@ -13006,7 +13025,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615195}
   m_ExposedName: LightFade
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 3
   m_Category: Light
   m_Min:
     m_Type:
@@ -13382,3 +13401,115 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
   m_Direction: 0
   m_LinkedSlots: []
+--- !u!114 &8926484042661615221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2461f61b3c026d54db1951a4e17ab20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 2737, y: -985}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots: []
+  m_Label: 
+  m_Data: {fileID: 8926484042661615222}
+  m_InputFlowSlot:
+  - link: []
+  m_OutputFlowSlot:
+  - link:
+    - context: {fileID: 8926484042661614555}
+      slotIndex: 1
+    - context: {fileID: 8926484042661614974}
+      slotIndex: 1
+    - context: {fileID: 8926484042661614700}
+      slotIndex: 1
+    - context: {fileID: 8926484042661614810}
+      slotIndex: 1
+  eventName: OnStop
+--- !u!114 &8926484042661615222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68759077adc0b143b6e1c101e82065e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  title: 
+  m_Owners:
+  - {fileID: 8926484042661615221}
+--- !u!114 &8926484042661615223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2461f61b3c026d54db1951a4e17ab20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 881, y: -985}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots: []
+  m_Label: 
+  m_Data: {fileID: 8926484042661615224}
+  m_InputFlowSlot:
+  - link: []
+  m_OutputFlowSlot:
+  - link:
+    - context: {fileID: 8926484042661614555}
+      slotIndex: 0
+    - context: {fileID: 8926484042661614974}
+      slotIndex: 0
+    - context: {fileID: 8926484042661614700}
+      slotIndex: 0
+    - context: {fileID: 8926484042661614810}
+      slotIndex: 0
+  eventName: OnPlay
+--- !u!114 &8926484042661615224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68759077adc0b143b6e1c101e82065e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  title: 
+  m_Owners:
+  - {fileID: 8926484042661615223}

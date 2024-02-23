@@ -80,10 +80,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1120098311168192820, guid: 79c13761dbd854a47b2adf8d1f4621ab,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -5539656425577225936}
-    - targetCorrespondingSourceObject: {fileID: 1120098311168192820, guid: 79c13761dbd854a47b2adf8d1f4621ab,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 3064447014460773998}
   m_SourcePrefab: {fileID: 100100000, guid: 79c13761dbd854a47b2adf8d1f4621ab, type: 3}
 --- !u!1 &6512161090514561712 stripped
@@ -92,22 +88,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6184774316493396868}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-5539656425577225936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6512161090514561712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef0e30e23aeab6d4082958fa8d09a414, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _MouseAxis: {fileID: 11400000, guid: 1d363ed6de0cc2142865e16bda78a3be, type: 2}
-  _PositionData: {fileID: 11400000, guid: cdf53149fe3f0654ab3f3f17388fce8b, type: 2}
-  _Target: {fileID: 0}
-  _RotationSpeed: 5
 --- !u!114 &3064447014460773998
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -75,9 +75,9 @@ VisualEffect:
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: d13a9a549f257324d8e63805ea613434, type: 3}
   m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
+  m_InitialEventNameOverriden: 1
   m_StartSeed: 0
-  m_ResetSeedOnPlay: 1
+  m_ResetSeedOnPlay: 0
   m_AllowInstancing: 1
   m_ResourceVersion: 1
   m_PropertySheet:
@@ -99,7 +99,7 @@ VisualEffect:
       - m_Value: {x: 10, y: 0.01, z: 0}
         m_Name: Position
         m_Overridden: 1
-      - m_Value: {x: 10, y: 0.1, z: 0}
+      - m_Value: {x: 10, y: -0.4, z: 0}
         m_Name: LightPosition
         m_Overridden: 1
     m_Vector4f:
@@ -179,6 +179,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3207470100069533034}
+  - component: {fileID: 3853156211184674299}
+  - component: {fileID: 8924393178736760783}
   m_Layer: 0
   m_Name: FireBlock
   m_TagString: Untagged
@@ -204,6 +206,44 @@ Transform:
   - {fileID: 463139777645624583}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3853156211184674299
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741210693293437851}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 6
+  m_Center: {x: 0.1, y: -0.5, z: 0.2}
+--- !u!114 &8924393178736760783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741210693293437851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea45f8f4e122e249bfe0d8b1581f9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Data: {fileID: 11400000, guid: 91f3b94816bcc2f45a9f1f7544918b5d, type: 2}
+  _Source: {fileID: 8819364899458772699}
+  _ShaderParameters:
+  - _EmissionStrength
+  _VFX: {fileID: 5855177587590466584}
 --- !u!1 &5073418794229682686
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6280225612243675120}
+  - component: {fileID: 5999947733853334938}
   m_Layer: 0
   m_Name: NotBurning
   m_TagString: Untagged
@@ -235,6 +276,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3207470100069533034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5999947733853334938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073418794229682686}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0.75, y: 0, z: 0.25}
 --- !u!1 &6617821794468030827
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +545,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 298
+  m_VersionIndex: 307
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

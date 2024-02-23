@@ -11,8 +11,8 @@ namespace com.ironicentertainment.Tools.Extensions
         {
             int hIndex = Animator.StringToHash(horizontale);
             int vIndex = Animator.StringToHash(vertical);
-            anim.SetFloat(hIndex, horizontalValue, 0.1f, Time.deltaTime);
-            anim.SetFloat(vIndex, verticalValue, 0.1f, Time.deltaTime);
+            anim.SetFloat(hIndex, horizontalValue, .05f, Time.deltaTime);
+            anim.SetFloat(vIndex, verticalValue, .05f, Time.deltaTime);
         }
 
         public static (bool, float[]) IsZero(this Animator anim, params string[] parameters)

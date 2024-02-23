@@ -15,10 +15,10 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Positions
     [RequireComponent(typeof(GreyOutObstacle))]
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private InputManager _MouseAxis;
+        [SerializeField] private InputManager _Axis;
         [SerializeField] private CameraPositionData _PositionData;
         [SerializeField] private GameObject _Target;
-        [SerializeField] private float _RotationSpeed = 5f;
+        [SerializeField] private float _RotationSpeed = 5f, _PosResetTick = 0.05f;
 
         private Coroutine _MoveToNewCoroutine;
 
@@ -37,26 +37,34 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Positions
                 SetCameraAroundTargetToNewPosition(_PositionData, _Target); 
             } 
         }
-        private void Awake()
+
+
+        private void OnDrawGizmos()
         {
-            SetCameraAroundTargetPosition(_PositionData, _Target);
+            if (_PositionData != null && _Target != null)
+            {
+                StartCoroutine(MoveCameraAroundTargetToNewPosition(_PositionData, _Target));
+            }
+            else if (_PositionData != null)
+            {
+                SetCameraAroundTargetPosition(_PositionData, null);
+            }
+        }
+
+        private void Start()
+        {
+            StartCoroutine(MoveCamera());
         }
 
         private void Update()
         {
             if (CanRotate)
             {
-                Quaternion rotationY = Quaternion.AngleAxis(Input.GetAxis(_MouseAxis.Inputs[0].InputValue) * _RotationSpeed, Vector3.up);
+                Quaternion rotationY = Quaternion.AngleAxis(Input.GetAxis(_Axis.Inputs[0].InputValue) * _RotationSpeed, Vector3.up);
 
                 _RotatedAngle += rotationY.eulerAngles.y;
                 _RotatedAngle = (_RotatedAngle + 360) % 360;
             }
-
-            if (_IsMoving) return;
-
-            transform.position = _Target.transform.position + _PositionData.GetPosition(_RotatedAngle);
-
-            transform.LookAt(_Target.transform.position);
         }
 
         /// <summary>
@@ -70,6 +78,12 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Positions
             
             _MoveToNewCoroutine = StartCoroutine(MoveCameraAroundTargetToNewPosition( positionData, target));
         }
+        public void SetCameraAroundTargetToNewPosition(CameraPositionData positionData, GameObject target = null, float pTime = 2)
+        {
+            if (_MoveToNewCoroutine != null) { StopCoroutine(_MoveToNewCoroutine); _MoveToNewCoroutine = null; }
+
+            _MoveToNewCoroutine = StartCoroutine(MoveCameraAroundTargetToNewPosition(positionData, target, pTime));
+        }
 
         /// <summary>
         /// 
@@ -78,10 +92,16 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Positions
         /// <param name="target"></param>
         public void SetCameraAroundTargetPosition(CameraPositionData positionData, GameObject target = null)
         {
-            transform.position = target.transform.position + positionData.GetPosition();
-
-            if (target != null) transform.LookAt(target.transform.position);
-            else transform.LookAt(Vector3.zero);
+            if (target != null)
+            {
+                transform.position = target.transform.position + positionData.GetPosition();
+                transform.LookAt(target.transform.position);
+            }
+            else 
+            {
+                transform.position = positionData.GetPosition();
+                transform.LookAt(Vector3.zero); 
+            }
         }
 
         /// <summary>
@@ -90,15 +110,15 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Positions
         /// <param name="positionData"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        public IEnumerator MoveCameraAroundTargetToNewPosition( CameraPositionData positionData, GameObject target = null)
+        public IEnumerator MoveCameraAroundTargetToNewPosition( CameraPositionData positionData, GameObject target = null, float pTime = 2)
         {
             float move = 0; 
 
-            while (move < 2)
+            while (move < pTime)
             {
                 move += Time.deltaTime;
 
-                transform.position = Vector3.Lerp(transform.position, target.transform.position + positionData.GetPosition(_RotatedAngle), move/2);
+                transform.position = Vector3.Lerp(transform.position, target.transform.position + positionData.GetPosition(_RotatedAngle), move / pTime);
 
                 if (target != null) transform.LookAt(target.transform.position);
                 else transform.LookAt(Vector3.zero);
@@ -107,6 +127,17 @@ namespace com.ironicentertainment.Common.Elements.Cameras.Positions
             }
 
             _IsMoving = false;
+        }
+
+        public IEnumerator MoveCamera()
+        {
+            float lTime = _PosResetTick;
+
+            SetCameraAroundTargetToNewPosition(_PositionData, _Target, lTime);
+
+            yield return new WaitForSeconds(lTime);
+
+            StartCoroutine(MoveCamera());
         }
     }
 }

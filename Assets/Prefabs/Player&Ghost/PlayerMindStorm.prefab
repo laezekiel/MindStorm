@@ -233,6 +233,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4152556872678740042, guid: 61967e64549331844a72b395a8bd1a61,
+        type: 3}
+      propertyPath: _WallTag
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152556872678740042, guid: 61967e64549331844a72b395a8bd1a61,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4250259251179162182, guid: 61967e64549331844a72b395a8bd1a61,
         type: 3}
       propertyPath: m_Layer
@@ -413,6 +423,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7492467822756282919, guid: 61967e64549331844a72b395a8bd1a61,
+        type: 3}
+      propertyPath: _Target
+      value: 
+      objectReference: {fileID: 7783047672225969573}
     - target: {fileID: 7529222322022529829, guid: 61967e64549331844a72b395a8bd1a61,
         type: 3}
       propertyPath: m_Layer

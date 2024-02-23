@@ -166,7 +166,7 @@ Material:
     - _DstBlend: 0
     - _Emission: 0
     - _EmissionSide: 1
-    - _EmissionStrength: 1
+    - _EmissionStrength: 0
     - _EmissionTop: 1
     - _EmissionUp: 1
     - _EmissiveColorMode: 1

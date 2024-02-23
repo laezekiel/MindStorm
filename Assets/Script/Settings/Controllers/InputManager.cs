@@ -10,7 +10,7 @@ namespace com.isartdigital.Common.Settings.Controllers
     [CreateAssetMenu(menuName = "Settings/Input Controller", fileName = "DefaultController", order = 0)]
     public class InputManager : ScriptableObject
     {
-        public enum UnityInputs { Horizontal, Vertical, Fire1, Fire2, Fire3, Jump, Mouse_X, Mouse_Y, Mouse_ScrollWheel, Submit, Cancel, Ghost, Gather, Interract, }
+        public enum UnityInputs { Horizontal, Vertical, Fire1, Fire2, Fire3, Jump, Mouse_X, Mouse_Y, Mouse_ScrollWheel, Submit, Cancel, Ghost, Gather, Interract, AEAxis }
 
         [Serializable]
         public class InputData

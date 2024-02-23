@@ -15,6 +15,8 @@ namespace com.isartdigital.Common.Elements.Player.Move
         
         [SerializeField] private Directions _Direction;
 
+        public bool IsPressed { get => GetAxisStrength() != Vector3.zero; }
+
         public Vector3 GetAxisStrength()
         {
             switch (_Direction)
