@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6759902333610658343}
   - component: {fileID: 2644808569413821387}
   m_Layer: 0
-  m_Name: ForceField
+  m_Name: SphereBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 56fd3476cd3ed7d4eb362f730b155dbe, type: 2}
+  - {fileID: 2100000, guid: fea176ea982634d40bde775e4fc7d677, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
