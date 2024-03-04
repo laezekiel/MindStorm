@@ -3,11 +3,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 namespace com.ironicentertainment.Common.Elements.Lights
 {
     public class LightControler : MonoBehaviour
     {
+        [SerializeField]
+        protected List<string> _ShaderParameters = new List<string>()
+        {
+            "_EmissionStrength",
+        };
+
+        [SerializeField] protected VisualEffect _VFX;
         [SerializeField] protected LightData _Data;
 
         [SerializeField] protected Renderer _Source;
@@ -32,35 +40,58 @@ namespace com.ironicentertainment.Common.Elements.Lights
         {
             TurnOn += (sender, e) => StartCoroutine(CallTurnOn());
             TurnOff += (sender, e) => StartCoroutine(CallTurnOff());
+
+            if (IsOn) _VFX.Play();
+            else _VFX.Stop();
         }
 
 
         public virtual IEnumerator CallTurnOn() 
         {
-            float   lWaitMax = _Data.On.Clip.length,
-                    lTime = lWaitMax / 10,
+            float lWaitMax = _Data.On.Clip.length,
                     lWait = 0;
 
-            while (lWait < lWaitMax) 
-            {
-                lWait += lTime;
+            float lOrigin = 0,
+                    lEnd = 1;
 
-                yield return new WaitForSeconds(lTime);
+            bool lActive = false;
+
+            while (lWait < lWaitMax)
+            {
+                lWait += Time.deltaTime;
+
+                if (lWait > lWaitMax / 4 && !lActive) { lActive = true; _VFX.Play(); }
+
+                Source.material.SetFloat(_ShaderParameters[0], LerpPartial(lOrigin, lEnd, lWait));
+
+                yield return new WaitForSeconds(Time.deltaTime);
             }
+
+            Source.material.SetFloat(_ShaderParameters[0], LerpPartial(lOrigin, lEnd, 1));
         }
 
         public virtual IEnumerator CallTurnOff() 
         {
-            float   lWaitMax = _Data.Off.Clip.length,
-                    lTime = lWaitMax / 10,
+            float lWaitMax = _Data.On.Clip.length,
                     lWait = 0;
 
-            while (lWait < lWaitMax) 
-            {
-                lWait += lTime;
+            float lOrigin = 1,
+                    lEnd = 0;
 
-                yield return new WaitForSeconds(lTime);
+            bool lActive = true;
+
+            while (lWait < lWaitMax)
+            {
+                lWait += Time.deltaTime;
+
+                if (lWait > lWaitMax / 4 && lActive) { lActive = false; _VFX.Stop(); }
+
+                Source.material.SetFloat(_ShaderParameters[0], LerpPartial(lOrigin, lEnd, lWait));
+
+                yield return new WaitForSeconds(Time.deltaTime);
             }
+
+            Source.material.SetFloat(_ShaderParameters[0], LerpPartial(lOrigin, lEnd, 1));
         }
 
         protected T LerpPartial<T>(T pOrigin, T pEnd, float pTime) where T : struct

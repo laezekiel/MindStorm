@@ -63,7 +63,7 @@ Material:
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 10
     - _EmissionSide: 0.5
-    - _EmissionStrength: 1
+    - _EmissionStrength: 0
     - _EmissionUp: 0.25
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
