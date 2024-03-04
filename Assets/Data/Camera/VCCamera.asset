@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f339022a1b83a944abc7ff63a0f43203, type: 3}
-  m_Name: DefaultCamera
+  m_Name: VCCamera
   m_EditorClassIdentifier: 
   _Length: 8
-  _Height: 17.7
-  _Angle: -45
+  _Height: 5
+  _Angle: -58.8
