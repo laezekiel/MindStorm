@@ -94,7 +94,7 @@ namespace com.ironicentertainment.Common.Elements.Manager
 
             lAnim.SetBool("OnGround", true);
 
-            PlayerMSManager.Instance.Active = false;
+            PlayerMSManager.Instance.IsMoving = false;
 
 
         }
@@ -117,7 +117,7 @@ namespace com.ironicentertainment.Common.Elements.Manager
 
             lAnim.SetBool("OnGround", false);
 
-            PlayerMSManager.Instance.Active = true;
+            PlayerMSManager.Instance.IsMoving = true;
         }
 
         private void StartLevel_2()

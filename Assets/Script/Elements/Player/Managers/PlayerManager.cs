@@ -24,7 +24,7 @@ namespace com.ironicentertainment.Elements.Player.Managers
         private PlayerMoveAround _Mover;
         public PlayerMoveAround Mover { get { if (_Mover == null) _Mover = Character.GetComponent<PlayerMoveAround>(); return _Mover; } }
 
-        public bool IsMoving { get { return Mover.CanGetMove[0]; } set { Mover.CanGetMove[0] = value; } }
+        public bool IsMoving { get { return Mover.CanMove; } set { Mover.CanMove = value; } }
 
 
         private Animator _Anim;
